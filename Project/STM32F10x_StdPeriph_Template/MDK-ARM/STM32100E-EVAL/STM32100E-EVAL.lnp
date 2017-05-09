@@ -13,6 +13,7 @@
 ".\stm32100e-eval\mymodbusdata.o"
 ".\stm32100e-eval\tim.o"
 ".\stm32100e-eval\pll.o"
+".\stm32100e-eval\cuttingpara.o"
 ".\stm32100e-eval\stm32f10x_rcc.o"
 ".\stm32100e-eval\stm32f10x_gpio.o"
 ".\stm32100e-eval\misc.o"

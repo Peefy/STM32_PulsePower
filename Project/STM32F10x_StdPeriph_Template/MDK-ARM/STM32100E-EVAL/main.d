@@ -47,3 +47,4 @@
 .\stm32100e-eval\main.o: ..\modbus\include\mbport.h
 .\stm32100e-eval\main.o: ..\modbus\include\mbproto.h
 .\stm32100e-eval\main.o: ..\MyModbusData.h
+.\stm32100e-eval\main.o: ..\cuttingpara.h

@@ -33,3 +33,5 @@
 .\stm32100e-eval\mymodbusdata.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\stm32100e-eval\mymodbusdata.o: ..\modbus\include\mbport.h
 .\stm32100e-eval\mymodbusdata.o: ..\modbus\include\mbproto.h
+.\stm32100e-eval\mymodbusdata.o: ..\cuttingpara.h
+.\stm32100e-eval\mymodbusdata.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdbool.h

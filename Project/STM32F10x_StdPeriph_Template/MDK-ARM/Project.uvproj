@@ -141,7 +141,7 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
+            <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>6</TargetSelection>
@@ -474,6 +474,11 @@
               <FileName>pll.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\pll.c</FilePath>
+            </File>
+            <File>
+              <FileName>cuttingpara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\cuttingpara.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1470,6 +1475,11 @@
               <FileType>1</FileType>
               <FilePath>..\pll.c</FilePath>
             </File>
+            <File>
+              <FileName>cuttingpara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\cuttingpara.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2464,6 +2474,11 @@
               <FileName>pll.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\pll.c</FilePath>
+            </File>
+            <File>
+              <FileName>cuttingpara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\cuttingpara.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3460,6 +3475,11 @@
               <FileType>1</FileType>
               <FilePath>..\pll.c</FilePath>
             </File>
+            <File>
+              <FileName>cuttingpara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\cuttingpara.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4455,6 +4475,11 @@
               <FileType>1</FileType>
               <FilePath>..\pll.c</FilePath>
             </File>
+            <File>
+              <FileName>cuttingpara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\cuttingpara.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5449,6 +5474,11 @@
               <FileName>pll.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\pll.c</FilePath>
+            </File>
+            <File>
+              <FileName>cuttingpara.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\cuttingpara.c</FilePath>
             </File>
           </Files>
         </Group>

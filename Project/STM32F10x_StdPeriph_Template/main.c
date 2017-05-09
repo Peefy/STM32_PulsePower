@@ -27,7 +27,7 @@
 #include "ad.h"
 #include "mb.h"
 #include "MyModbusData.h"
-
+#include "cuttingpara.h"
 /* Private typedef -----------------------------------------------------------*/
 
 /* Private define ------------------------------------------------------------*/
@@ -66,8 +66,7 @@ int main(void)
 	CPLD_GPIO_Config();       //与CPLD连接的IO口初始化
 	I2C_EE_Init();            //EEPROM 24C08初始化
 	TIM3_Init();              //TIM3 初始化
-	if(EEPROM_Test() == true) //如果EEPROM测试通过
-		LED_ON;                 //点亮LED
+	ReadAllDataFormEEPROM();
 	SetCpldPwmPara(50,2);     //设定高频的脉宽,脉间
 	#ifndef ModbusEnable
 	USART2_Configuration();

@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "MyModbusData.h"
 #include "mb.h"
-
+#include "cuttingpara.h"
 
 #define REG_HOLDING_START 0x0000
 #define REG_HOLDING_NREGS 8
@@ -98,9 +98,9 @@ typedef union
 
 uint16_t mbTemp;
 
-#define A1 PWMTime_us
-#define A2 TimesOfLow
-#define A3 mbTemp //setda_A high16
+#define A1 mbTemp
+#define A2 CuttingParaCom.PulseWidthNum
+#define A3 CuttingParaCom.Current //setda_A high16
 #define A4 mbTemp //setda_A low16
 #define A5 mbTemp
 #define A6 mbTemp
@@ -109,13 +109,13 @@ uint16_t mbTemp;
 
 void MyModbusBindingToHoldReg(void)
 {
-	Float2Uint16 float2Uint16;
-	float2Uint16.Float = SetDA_A;
 	
-	usRegHoldingBuf[0] = A1;
+	uint8_t u8Temp = (uint8_t)((CuttingParaCom.Number << 4) + CuttingParaCom.TimeOfLow);
+	uint16_t u16Temp = ((uint16_t)u8Temp << 8) + CuttingParaCom.RotateSpeed;
+	usRegHoldingBuf[0] = u16Temp;
   usRegHoldingBuf[1] = A2;
-	usRegHoldingBuf[2] = float2Uint16.UShort16[0];
-	usRegHoldingBuf[3] = float2Uint16.UShort16[1];
+	usRegHoldingBuf[2] = A3;
+	usRegHoldingBuf[3] = A4;
 	usRegHoldingBuf[4] = A5;
 	usRegHoldingBuf[5] = A6;
 	usRegHoldingBuf[6] = A7;
@@ -125,20 +125,40 @@ void MyModbusBindingToHoldReg(void)
 
 void MyModbusDataFromHoldReg(void)
 {	
-	Float2Uint16 float2Uint16;
-	float2Uint16.Float = SetDA_A;
-	
-	A1 = usRegHoldingBuf[0] ;
+	uint8_t  u8Temp;
+  uint16_t u16Temp;
+	u16Temp = usRegHoldingBuf[0] ;
 	A2 = usRegHoldingBuf[1] ;
-	float2Uint16.UShort16[0] = usRegHoldingBuf[2] ;
-	float2Uint16.UShort16[1] = usRegHoldingBuf[3] ;
+	A3 = usRegHoldingBuf[2] ;
+	A4 = usRegHoldingBuf[3] ;
 	A5 = usRegHoldingBuf[4] ;
 	A6 = usRegHoldingBuf[5] ;
 	A7 = usRegHoldingBuf[6] ;
 	A8 = usRegHoldingBuf[7] ;
 	
-	SetDA_A = float2Uint16.Float;
+  CuttingParaCom.RotateSpeed = (uint8_t)u16Temp;
+	u8Temp = u16Temp >> 8;
+	CuttingParaCom.Number = u8Temp >> 4;
+	CuttingParaCom.TimeOfLow = u8Temp & 0x0f;
 	
+	if(CuttingParaCom.Number <= 7)
+	{
+		if(CuttingPara_Equals(&(CuttingParaSave[CuttingParaCom.Number]),
+			&CuttingParaCom) == false)
+		{
+			CuttingParaSave[CuttingParaCom.Number] = CuttingParaCom;
+			SaveDataToEEPROM(&CuttingParaCom,CuttingParaCom.Number * 10);
+		}		
+		SetDA_A = CuttingParaSave[CuttingNumber].Current / 10.0f;
+		TimesOfLow = CuttingParaSave[CuttingNumber].TimeOfLow;
+		PWMTime_us = CuttingParaSave[CuttingNumber].PulseWidthNum * 20 /1000;
+	}
+	else if(CuttingParaCom.Number == 8)
+	{
+		SetDA_A = CuttingParaCom.Current / 10.0f;
+		TimesOfLow = CuttingParaCom.TimeOfLow;
+		PWMTime_us = CuttingParaCom.PulseWidthNum * 20 /1000;
+	}
 }
 
 

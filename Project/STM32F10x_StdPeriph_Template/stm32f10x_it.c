@@ -29,6 +29,7 @@
 #include "io.h"
 #include "ad.h"
 #include "tlc5615.h"
+#include "cuttingpara.h"
 #include "Config.h"
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -199,7 +200,6 @@ void TIM2_IRQHandler(void)
 }
 
 extern uint16_t PWMTime_us;
-
 extern uint16_t PWMTime;
 extern uint8_t TimesOfLow;
 extern uint32_t SetDA;
@@ -208,6 +208,7 @@ void TIM3_IRQHandler(void)  //10ms
 {
    TIM_ClearITPendingBit(TIM3,TIM_IT_Update);	
 	 CpldEN = CPLD_EN;	      //读取高频使能信号并送出
+	 CuttingNumber = Read8421();
 	 PWMTime = PWMTime_us * 50;
 	 SetCpldPwmPara(PWMTime,TimesOfLow);
 

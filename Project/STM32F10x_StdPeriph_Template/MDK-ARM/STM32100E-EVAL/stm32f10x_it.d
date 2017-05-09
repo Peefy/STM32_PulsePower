@@ -36,4 +36,6 @@
 .\stm32100e-eval\stm32f10x_it.o: ..\GPIOLIKE51.h
 .\stm32100e-eval\stm32f10x_it.o: ..\ad.h
 .\stm32100e-eval\stm32f10x_it.o: ..\tlc5615.h
+.\stm32100e-eval\stm32f10x_it.o: ..\cuttingpara.h
+.\stm32100e-eval\stm32f10x_it.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdbool.h
 .\stm32100e-eval\stm32f10x_it.o: ..\Config.h
