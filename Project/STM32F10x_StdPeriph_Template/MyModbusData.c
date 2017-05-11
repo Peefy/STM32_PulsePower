@@ -89,6 +89,7 @@ eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
 extern float SetDA_A;
 extern uint16_t PWMTime_us;
 extern uint8_t TimesOfLow ;
+extern uint8_t RotateHz;
 
 typedef union 
 {
@@ -143,21 +144,27 @@ void MyModbusDataFromHoldReg(void)
 	
 	if(CuttingParaCom.Number <= 7)
 	{
-		if(CuttingPara_Equals(&(CuttingParaSave[CuttingParaCom.Number]),
-			&CuttingParaCom) == false)
-		{
+		//if(CuttingPara_Equals(&(CuttingParaSave[CuttingParaCom.Number]),
+		//	&CuttingParaCom) == false)
+		//{
 			CuttingParaSave[CuttingParaCom.Number] = CuttingParaCom;
-			SaveDataToEEPROM(&CuttingParaCom,CuttingParaCom.Number * 10);
-		}		
-		SetDA_A = CuttingParaSave[CuttingNumber].Current / 10.0f;
-		TimesOfLow = CuttingParaSave[CuttingNumber].TimeOfLow;
-		PWMTime_us = CuttingParaSave[CuttingNumber].PulseWidthNum * 20 /1000;
+		//	SaveDataToEEPROM(&CuttingParaCom,CuttingParaCom.Number * 10);
+		//}		
+		//SetDA_A = CuttingParaSave[CuttingNumber].Current / 10.0f;
+		//TimesOfLow = CuttingParaSave[CuttingNumber].TimeOfLow;
+		//PWMTime_us = CuttingParaSave[CuttingNumber].PulseWidthNum * 20 /1000;
+		//RotateHz = CuttingParaSave[CuttingNumber].RotateSpeed;
+		SetDA_A = CuttingParaCom.Current / 10.0f;
+		TimesOfLow = CuttingParaCom.TimeOfLow;
+		PWMTime_us = CuttingParaCom.PulseWidthNum * 20 /1000;
+		RotateHz = CuttingParaCom.RotateSpeed;
 	}
 	else if(CuttingParaCom.Number == 8)
 	{
 		SetDA_A = CuttingParaCom.Current / 10.0f;
 		TimesOfLow = CuttingParaCom.TimeOfLow;
 		PWMTime_us = CuttingParaCom.PulseWidthNum * 20 /1000;
+		RotateHz = CuttingParaCom.RotateSpeed;
 	}
 }
 

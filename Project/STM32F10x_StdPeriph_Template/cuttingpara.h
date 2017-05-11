@@ -3,6 +3,8 @@
 
 #include "stdint.h"
 #include "stdbool.h"
+#include "stm32f10x_gpio.h"
+#include "io.h"
 
 typedef 
 struct
@@ -20,7 +22,7 @@ extern int CuttingNumber;
 
 uint8_t Read8421(void);
 void Write8421(int8_t num);
-
+void Write8421FromRotateSpeed(uint8_t speed);
 void SaveDataToEEPROM(CuttingPara_t* This, uint8_t writeAddr);
 void ReadDataFromEEPROM(CuttingPara_t* This, uint8_t readAddr);
 void SaveAllDataToEEPROM(void);

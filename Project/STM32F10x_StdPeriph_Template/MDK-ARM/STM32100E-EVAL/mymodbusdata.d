@@ -1,5 +1,5 @@
 .\stm32100e-eval\mymodbusdata.o: ..\MyModbusData.c
-.\stm32100e-eval\mymodbusdata.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdint.h
+.\stm32100e-eval\mymodbusdata.o: G:\MDK\ARM\ARMCC\bin\..\include\stdint.h
 .\stm32100e-eval\mymodbusdata.o: ..\MyModbusData.h
 .\stm32100e-eval\mymodbusdata.o: ..\modbus\include\mb.h
 .\stm32100e-eval\mymodbusdata.o: ..\modbus\port\port.h
@@ -34,4 +34,6 @@
 .\stm32100e-eval\mymodbusdata.o: ..\modbus\include\mbport.h
 .\stm32100e-eval\mymodbusdata.o: ..\modbus\include\mbproto.h
 .\stm32100e-eval\mymodbusdata.o: ..\cuttingpara.h
-.\stm32100e-eval\mymodbusdata.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdbool.h
+.\stm32100e-eval\mymodbusdata.o: G:\MDK\ARM\ARMCC\bin\..\include\stdbool.h
+.\stm32100e-eval\mymodbusdata.o: ..\io.h
+.\stm32100e-eval\mymodbusdata.o: ..\GPIOLIKE51.h

@@ -1,8 +1,8 @@
 
 #include "cuttingpara.h"
 #include "SystemCore.h"
-#include "io.h"
 #include "EEPROM_24c0x.h"
+
 
 CuttingPara_t CuttingParaSave[8] = 
 {
@@ -10,10 +10,10 @@ CuttingPara_t CuttingParaSave[8] =
   {1,2,50,2000,1},
 	{2,3,50,2000,1},
 	{3,3,50,2000,1},
-	{4,4,50,2000,1},
-	{5,4,50,2000,1},
-	{6,5,50,2000,1},
-	{7,5,50,2000,1}
+	{4,4,30,2000,1},
+	{5,4,20,2000,1},
+	{6,5,15,2000,1},
+	{7,5,30,2000,1}
 };
 
 CuttingPara_t CuttingParaCom = {8,8,50,1900,2};
@@ -32,9 +32,32 @@ uint8_t Read8421(void)
 void Write8421(int8_t num)
 {
 	num = (uint8_t)RANGE(num,0,7);
-	CPLD_VFD_A = BIT_GET(num,0);
-	CPLD_VFD_B = BIT_GET(num,1);
-	CPLD_VFD_C = BIT_GET(num,2);
+	BIT_GET(num,0) == 1 ? CPLD_VFD_A_HIGH : CPLD_VFD_A_LOW;
+  BIT_GET(num,1) == 1 ? CPLD_VFD_B_HIGH : CPLD_VFD_B_LOW;
+	BIT_GET(num,2) == 1 ? CPLD_VFD_C_HIGH : CPLD_VFD_C_LOW;
+}
+
+
+void Write8421FromRotateSpeed(uint8_t speed)
+{
+	static uint8_t speed_last;
+	uint8_t speed_n = 6;
+	if(speed_last == speed)
+		return;
+	else
+		speed_last = speed;
+	switch(speed)
+	{
+		case 10:speed_n = 6;break; //10Hz 0b110
+		case 15:speed_n = 5;break; //15Hz 0b101 
+		case 20:speed_n = 4;break; //20Hz 0b100 
+		case 25:speed_n = 3;break; //25Hz 0b011 
+		case 30:speed_n = 2;break; //30Hz 0b010
+		case 40:speed_n = 1;break; //40Hz 0b001
+		case 50:speed_n = 0;break; //50Hz 0b000
+		default:speed_n = 6;break; //10Hz 0b110
+	}
+	Write8421(speed_n);
 }
 
 void SaveDataToEEPROM(CuttingPara_t* This, uint8_t writeAddr)
@@ -67,7 +90,7 @@ void SaveAllDataToEEPROM(void)
 	for(; i < ARR_SIZE(CuttingParaSave) ;++i)
 	{
 		uint8_t addr = i * 10;
-		ReadDataFromEEPROM(&(CuttingParaSave[i]),addr);
+		SaveDataToEEPROM(&(CuttingParaSave[i]),addr);
 	}
 }
 
@@ -77,7 +100,7 @@ void ReadAllDataFormEEPROM(void)
 	for(; i < ARR_SIZE(CuttingParaSave) ;++i)
 	{
 		uint8_t addr = i * 10;
-		SaveDataToEEPROM(&(CuttingParaSave[i]),addr);
+		ReadDataFromEEPROM(&(CuttingParaSave[i]),addr);
 	}
 }
 

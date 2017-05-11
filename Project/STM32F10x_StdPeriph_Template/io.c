@@ -1,7 +1,7 @@
 
 
 #include "io.h"
-#include "stm32f10x_gpio.h"
+
 #include "delay.h"
 
 u8 CpldEN = 0;
@@ -9,7 +9,9 @@ void CPLD_GPIO_Config(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;  
   RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB , ENABLE); 		//初始化别忘了时钟		
-	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA , ENABLE); 		//初始化别忘了时钟			 
+	RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA , ENABLE); 		//初始化别忘了时钟			
+	RCC_APB2PeriphClockCmd( RCC_APB2Periph_AFIO , ENABLE); 		//初始化别忘了时钟
+  GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable,ENABLE);	
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_8|
@@ -44,15 +46,19 @@ void SetCpldPwmPara(uint16_t time,uint8_t timesOfLow)
 	unsigned char i;
 	static u16 time_last;
 	static u8 timesOfLow_last;
-	if(CpldEN > 0)
-		CPLD_PWM_SD = 0;
-	else
-		CPLD_PWM_SD = 1;
-	
+		
 	if((time == time_last) && (timesOfLow == timesOfLow_last))
+	{
+		if(CpldEN > 0)
+		  CPLD_PWM_SD = 0;
+	  else
+		  CPLD_PWM_SD = 1;
 		return;
+	}
 	else
 	{
+		BUCK_OFF;
+		delay_ms(3);
 		time_last = time;
 		timesOfLow_last = timesOfLow;
 	}

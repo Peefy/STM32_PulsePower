@@ -52,7 +52,7 @@ void ADCdeal(void)
 	//AD_Value[0] = ADCConvertedValue[0];
 	//滑动平均滤波 把12位AD变成10位
    
-	if(AD_Value[0] > 155)
+	if(AD_Value[0] > 162)  //有电流灯亮 没电流灯灭
 		LED_ON;
 	else
 		LED_OFF;

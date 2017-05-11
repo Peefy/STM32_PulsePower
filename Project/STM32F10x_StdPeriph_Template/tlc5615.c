@@ -4,6 +4,7 @@
 #include "stm32f10x_gpio.h"
 #include "SystemCore.h"
 #include "mb.h"
+#include "io.h"
 
 #define CPLD_DA_DIN  PAout(8)
 #define CPLD_DA_CLK  PAout(9)
@@ -27,7 +28,11 @@ void DAConvert(unsigned int daValue)
 	if(daValue == daValueLast)
 		return;
 	else
+	{
+		BUCK_OFF;
+		delay_ms(3);
 		daValueLast = daValue;
+	}
 	daValue <<= 2;
 	CPLD_DA_CS = 0;
 	CPLD_DA_CLK = 0;	

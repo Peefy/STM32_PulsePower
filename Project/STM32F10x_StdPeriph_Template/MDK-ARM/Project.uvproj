@@ -12,13 +12,13 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32F103RB</Device>
+          <Device>STM32F103C8</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <Cpu>IRAM(0x20000000-0x20004FFF) IROM(0x8000000-0x801FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3")</Cpu>
+          <Cpu>IRAM(0x20000000-0x20004FFF) IROM(0x8000000-0x800FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3")</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile>"STARTUP\ST\STM32F10x\startup_stm32f10x_md.s" ("STM32 Medium Density Line Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O14 -S0 -C0 -N00("ARM Cortex-M3") -D00(1BA00477) -L00(4) -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F10x_128 -FS08000000 -FL020000)</FlashDriverDll>
-          <DeviceId>4231</DeviceId>
+          <FlashDriverDll>UL2CM3(-O14 -S0 -C0 -N00("ARM Cortex-M3") -D00(1BA00477) -L00(4) -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F10x_128 -FS08000000 -FL010000)</FlashDriverDll>
+          <DeviceId>4235</DeviceId>
           <RegisterFile>stm32f10x.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
@@ -29,8 +29,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\ST\STM32F1xx\STM32F103xx.sfr</SFDFile>
-          <bCustSvd>0</bCustSvd>
+          <SFDFile>SFD\ST\STM32F1xx\STM32F103xx.sfrSVD=SFD\ST\STM32F1xx\STM32F103xx.sfr</SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -98,17 +97,16 @@
           <StopOnExitCode>3</StopOnExitCode>
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
-          <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
           <SimDllArguments></SimDllArguments>
           <SimDlgDll>DARMSTM.DLL</SimDlgDll>
-          <SimDlgDllArguments>-pSTM32F103RB</SimDlgDllArguments>
+          <SimDlgDllArguments>-pSTM32F103C8</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
           <TargetDllArguments></TargetDllArguments>
           <TargetDlgDll>TARMSTM.DLL</TargetDlgDll>
-          <TargetDlgDllArguments>-pSTM32F103RB</TargetDlgDllArguments>
+          <TargetDlgDllArguments>-pSTM32F103C8</TargetDlgDllArguments>
         </DllOption>
         <DebugOption>
           <OPTHX>
@@ -128,7 +126,6 @@
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
@@ -140,11 +137,9 @@
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>7</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -174,10 +169,6 @@
           <Flash2>Segger\JL2CM3.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
-          <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
           <ArmAdsMisc>
@@ -282,7 +273,7 @@
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x10000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -307,7 +298,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x10000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -356,8 +347,6 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD_VL, USE_STM32100E_EVAL</Define>
@@ -374,7 +363,6 @@
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -391,7 +379,6 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
@@ -617,7 +604,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -629,7 +615,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -659,7 +644,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -671,7 +655,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -701,7 +684,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -713,7 +695,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -743,7 +724,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -755,7 +735,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -785,7 +764,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -797,7 +775,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -827,7 +804,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -839,7 +815,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -869,7 +844,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -881,7 +855,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1030,7 +1003,6 @@
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
           <SFDFile></SFDFile>
-          <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -1098,7 +1070,6 @@
           <StopOnExitCode>3</StopOnExitCode>
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
-          <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
@@ -1128,7 +1099,6 @@
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
@@ -1140,8 +1110,6 @@
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>1</TargetSelection>
@@ -1174,10 +1142,6 @@
           <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
-          <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
           <ArmAdsMisc>
@@ -1356,8 +1320,6 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_XL, USE_STM3210E_EVAL</Define>
@@ -1374,7 +1336,6 @@
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -1391,7 +1352,6 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
@@ -1617,7 +1577,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1629,7 +1588,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1659,7 +1617,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1671,7 +1628,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1701,7 +1657,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1713,7 +1668,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1743,7 +1697,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1755,7 +1708,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1785,7 +1737,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1797,7 +1748,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1827,7 +1777,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1839,7 +1788,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -1874,7 +1822,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -1886,7 +1833,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2030,7 +1976,6 @@
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
           <SFDFile></SFDFile>
-          <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -2098,7 +2043,6 @@
           <StopOnExitCode>3</StopOnExitCode>
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
-          <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
@@ -2128,7 +2072,6 @@
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
@@ -2140,8 +2083,6 @@
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>1</TargetSelection>
@@ -2174,10 +2115,6 @@
           <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
-          <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
           <ArmAdsMisc>
@@ -2356,8 +2293,6 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_MD_VL, USE_STM32100B_EVAL</Define>
@@ -2374,7 +2309,6 @@
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -2391,7 +2325,6 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
@@ -2617,7 +2550,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2629,7 +2561,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2659,7 +2590,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2671,7 +2601,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2701,7 +2630,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2713,7 +2641,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2743,7 +2670,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2755,7 +2681,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2785,7 +2710,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2797,7 +2721,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2832,7 +2755,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2844,7 +2766,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -2874,7 +2795,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -2886,7 +2806,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3030,7 +2949,6 @@
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
           <SFDFile></SFDFile>
-          <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -3098,7 +3016,6 @@
           <StopOnExitCode>3</StopOnExitCode>
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
-          <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
@@ -3128,7 +3045,6 @@
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
@@ -3140,8 +3056,6 @@
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>1</TargetSelection>
@@ -3174,10 +3088,6 @@
           <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
-          <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
           <ArmAdsMisc>
@@ -3356,8 +3266,6 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_CL, USE_STM3210C_EVAL</Define>
@@ -3374,7 +3282,6 @@
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -3391,7 +3298,6 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
@@ -3622,7 +3528,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3634,7 +3539,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3664,7 +3568,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3676,7 +3579,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3706,7 +3608,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3718,7 +3619,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3748,7 +3648,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3760,7 +3659,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3790,7 +3688,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3802,7 +3699,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3832,7 +3728,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3844,7 +3739,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -3874,7 +3768,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -3886,7 +3779,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4030,7 +3922,6 @@
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
           <SFDFile></SFDFile>
-          <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -4098,7 +3989,6 @@
           <StopOnExitCode>3</StopOnExitCode>
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
-          <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
@@ -4128,7 +4018,6 @@
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
@@ -4140,8 +4029,6 @@
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>1</TargetSelection>
@@ -4174,10 +4061,6 @@
           <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3></Flash3>
           <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
-          <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
           <ArmAdsMisc>
@@ -4356,8 +4239,6 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD, USE_STM3210E_EVAL</Define>
@@ -4374,7 +4255,6 @@
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -4391,7 +4271,6 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
@@ -4617,7 +4496,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4629,7 +4507,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4664,7 +4541,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4676,7 +4552,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4706,7 +4581,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4718,7 +4592,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4748,7 +4621,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4760,7 +4632,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4790,7 +4661,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4802,7 +4672,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4832,7 +4701,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4844,7 +4712,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -4874,7 +4741,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -4886,7 +4752,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5030,7 +4895,6 @@
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
           <SFDFile></SFDFile>
-          <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -5098,7 +4962,6 @@
           <StopOnExitCode>3</StopOnExitCode>
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
-          <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
@@ -5128,7 +4991,6 @@
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
-            <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
             <UseTarget>1</UseTarget>
@@ -5140,8 +5002,6 @@
             <RestoreFunctions>0</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
-            <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>1</TargetSelection>
@@ -5174,10 +5034,6 @@
           <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
-          <pFcarmOut></pFcarmOut>
-          <pFcarmGrp></pFcarmGrp>
-          <pFcArmRoot></pFcArmRoot>
-          <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
           <ArmAdsMisc>
@@ -5356,8 +5212,6 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_MD, USE_STM3210B_EVAL</Define>
@@ -5374,7 +5228,6 @@
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
-            <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -5391,7 +5244,6 @@
             <useFile>0</useFile>
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
-            <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
@@ -5617,7 +5469,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5629,7 +5480,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5659,7 +5509,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5671,7 +5520,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5701,7 +5549,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5713,7 +5560,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5743,7 +5589,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5755,7 +5600,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5790,7 +5634,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5802,7 +5645,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5832,7 +5674,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5844,7 +5685,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>
@@ -5874,7 +5714,6 @@
                   <StopOnExitCode>11</StopOnExitCode>
                   <CustomArgument></CustomArgument>
                   <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
                 </CommonProperty>
                 <FileArmAds>
                   <Aads>
@@ -5886,7 +5725,6 @@
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
                     <uSurpInc>2</uSurpInc>
-                    <useXO>2</useXO>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>

@@ -209,8 +209,7 @@ void TIM3_IRQHandler(void)  //10ms
    TIM_ClearITPendingBit(TIM3,TIM_IT_Update);	
 	 CpldEN = CPLD_EN;	      //读取高频使能信号并送出
 	 CuttingNumber = Read8421();
-	 PWMTime = PWMTime_us * 50;
-	 SetCpldPwmPara(PWMTime,TimesOfLow);
+
 
 }
 

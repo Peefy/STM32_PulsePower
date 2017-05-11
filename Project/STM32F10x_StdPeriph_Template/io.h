@@ -5,6 +5,7 @@
 
 #include "GPIOLIKE51.h"
 #include <stm32f10x.h>
+#include "stm32f10x_gpio.h"
 
 #define LED_STATUS 	 PBout(8)
 
@@ -20,6 +21,20 @@
 #define CPLD_VFD_B   PBout(4)
 #define CPLD_VFD_C   PBout(5)
 
+#define CPLD_VFD_GPIO GPIOB
+#define CPLD_VFD_A_PIN 3 
+#define CPLD_VFD_B_PIN 4
+#define CPLD_VFD_C_PIN 5
+
+#define CPLD_VFD_A_HIGH  GPIO_SetBits(CPLD_VFD_GPIO,GPIO_Pin_3)
+#define CPLD_VFD_A_LOW   GPIO_ResetBits(CPLD_VFD_GPIO,GPIO_Pin_3)
+
+#define CPLD_VFD_B_HIGH  GPIO_SetBits(CPLD_VFD_GPIO,GPIO_Pin_4)
+#define CPLD_VFD_B_LOW   GPIO_ResetBits(CPLD_VFD_GPIO,GPIO_Pin_4)
+
+#define CPLD_VFD_C_HIGH  GPIO_SetBits(CPLD_VFD_GPIO,GPIO_Pin_5)
+#define CPLD_VFD_C_LOW   GPIO_ResetBits(CPLD_VFD_GPIO,GPIO_Pin_5)
+
 //#define CPLD_DA_DIN  PAout(8)
 //#define CPLD_DA_CLK  PAout(9)
 //#define CPLD_DA_CS   PAout(10)
@@ -30,6 +45,9 @@
 #define PWM_CFG_SDA  PBout(11)
 
 #define CPLD_PWM_SD  PBout(15)
+
+#define BUCK_ON  (CPLD_PWM_SD = 1)
+#define BUCK_OFF (CPLD_PWM_SD = 0)
 
 extern u8 CpldEN;
 

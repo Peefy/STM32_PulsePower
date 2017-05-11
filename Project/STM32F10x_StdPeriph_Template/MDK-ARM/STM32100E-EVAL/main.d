@@ -1,7 +1,7 @@
 .\stm32100e-eval\main.o: ..\main.c
 .\stm32100e-eval\main.o: ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\stm32100e-eval\main.o: ..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\stm32100e-eval\main.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdint.h
+.\stm32100e-eval\main.o: G:\MDK\ARM\ARMCC\bin\..\include\stdint.h
 .\stm32100e-eval\main.o: ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\stm32100e-eval\main.o: ..\stm32f10x_conf.h
 .\stm32100e-eval\main.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -29,7 +29,7 @@
 .\stm32100e-eval\main.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\stm32100e-eval\main.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\stm32100e-eval\main.o: ..\delay.h
-.\stm32100e-eval\main.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdio.h
+.\stm32100e-eval\main.o: G:\MDK\ARM\ARMCC\bin\..\include\stdio.h
 .\stm32100e-eval\main.o: ..\peripheral_init.h
 .\stm32100e-eval\main.o: ..\LowerComputer_V2.h
 .\stm32100e-eval\main.o: ..\tim.h
@@ -38,8 +38,8 @@
 .\stm32100e-eval\main.o: ..\GPIOLIKE51.h
 .\stm32100e-eval\main.o: ..\tlc5615.h
 .\stm32100e-eval\main.o: ..\EEPROM_24c0x.h
-.\stm32100e-eval\main.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\string.h
-.\stm32100e-eval\main.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdbool.h
+.\stm32100e-eval\main.o: G:\MDK\ARM\ARMCC\bin\..\include\string.h
+.\stm32100e-eval\main.o: G:\MDK\ARM\ARMCC\bin\..\include\stdbool.h
 .\stm32100e-eval\main.o: ..\Config.h
 .\stm32100e-eval\main.o: ..\ad.h
 .\stm32100e-eval\main.o: ..\modbus\include\mb.h

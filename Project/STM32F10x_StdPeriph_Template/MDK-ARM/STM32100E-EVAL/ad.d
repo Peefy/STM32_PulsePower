@@ -2,7 +2,7 @@
 .\stm32100e-eval\ad.o: ..\ad.h
 .\stm32100e-eval\ad.o: ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\stm32100e-eval\ad.o: ..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\stm32100e-eval\ad.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdint.h
+.\stm32100e-eval\ad.o: G:\MDK\ARM\ARMCC\bin\..\include\stdint.h
 .\stm32100e-eval\ad.o: ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\stm32100e-eval\ad.o: ..\stm32f10x_conf.h
 .\stm32100e-eval\ad.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -32,6 +32,6 @@
 .\stm32100e-eval\ad.o: ..\io.h
 .\stm32100e-eval\ad.o: ..\GPIOLIKE51.h
 .\stm32100e-eval\ad.o: ..\SystemCore.h
-.\stm32100e-eval\ad.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\math.h
-.\stm32100e-eval\ad.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdbool.h
-.\stm32100e-eval\ad.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\string.h
+.\stm32100e-eval\ad.o: G:\MDK\ARM\ARMCC\bin\..\include\math.h
+.\stm32100e-eval\ad.o: G:\MDK\ARM\ARMCC\bin\..\include\stdbool.h
+.\stm32100e-eval\ad.o: G:\MDK\ARM\ARMCC\bin\..\include\string.h

@@ -34,7 +34,7 @@
 
 /* Private macro -------------------------------------------------------------*/
 
-/* Private variables ---------------------------------------------------------*/
+/* Public variables ---------------------------------------------------------*/
 
 s16 temp1,temp2,temp3;
 uint32_t SetDA = 1;
@@ -42,7 +42,7 @@ float SetDA_A = 0.02;
 uint16_t PWMTime_us = 20;
 uint16_t PWMTime = 50;
 uint8_t TimesOfLow = 7;
-
+uint8_t RotateHz = 40;
 /* Private function prototypes -----------------------------------------------*/
 void USART2_GPIO_Configuration(void);
 void USART2_Configuration(void);
@@ -79,17 +79,20 @@ int main(void)
 	{	
 		temp2++;
 		ADCdeal();
-		SetDA = SetDA_A * 50;   
+		SetDA = SetDA_A * 25;   
 		DAConvert(SetDA);     //给DA芯片tlc5615发数
-		#ifndef ModbusEnable  //使用modbus
+	  PWMTime = PWMTime_us * 50;	
+	  SetCpldPwmPara(PWMTime,TimesOfLow);
+		Write8421FromRotateSpeed(RotateHz);//给变频器发数
+		#ifndef ModbusEnable  //使用Qin 上位机
 		LC_SendData();
 		LC_ReceivedData();
-		#else                 //使用Qin 上位机
+		#else                 //使用modbus
 		MyModbusBindingToHoldReg();
 		(void)eMBPoll();
 		MyModbusDataFromHoldReg();
 		#endif
-	  delay_ms(50);
+	  delay_ms(40);
 	}
 }
 

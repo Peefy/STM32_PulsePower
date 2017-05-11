@@ -4,7 +4,7 @@
 .\stm32100e-eval\tlc5615.o: ..\delay.h
 .\stm32100e-eval\tlc5615.o: ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\stm32100e-eval\tlc5615.o: ..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
-.\stm32100e-eval\tlc5615.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdint.h
+.\stm32100e-eval\tlc5615.o: G:\MDK\ARM\ARMCC\bin\..\include\stdint.h
 .\stm32100e-eval\tlc5615.o: ..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\stm32100e-eval\tlc5615.o: ..\stm32f10x_conf.h
 .\stm32100e-eval\tlc5615.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -32,10 +32,11 @@
 .\stm32100e-eval\tlc5615.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\stm32100e-eval\tlc5615.o: ..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\stm32100e-eval\tlc5615.o: ..\SystemCore.h
-.\stm32100e-eval\tlc5615.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\math.h
-.\stm32100e-eval\tlc5615.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\stdbool.h
-.\stm32100e-eval\tlc5615.o: E:\MDK4.7\ARM\ARMCC\bin\..\include\string.h
+.\stm32100e-eval\tlc5615.o: G:\MDK\ARM\ARMCC\bin\..\include\math.h
+.\stm32100e-eval\tlc5615.o: G:\MDK\ARM\ARMCC\bin\..\include\stdbool.h
+.\stm32100e-eval\tlc5615.o: G:\MDK\ARM\ARMCC\bin\..\include\string.h
 .\stm32100e-eval\tlc5615.o: ..\modbus\include\mb.h
 .\stm32100e-eval\tlc5615.o: ..\modbus\port\port.h
 .\stm32100e-eval\tlc5615.o: ..\modbus\include\mbport.h
 .\stm32100e-eval\tlc5615.o: ..\modbus\include\mbproto.h
+.\stm32100e-eval\tlc5615.o: ..\io.h
